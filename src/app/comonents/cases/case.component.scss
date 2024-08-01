@@ -1,0 +1,32 @@
+.card{
+    border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin: 10px;
+    height:120px;
+    width: 50%;
+  }
+  .allCard{
+    direction: rtl;
+  }
+  .title{
+    background-color: cadetblue;
+    height:30px;
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 2%;
+  }
+
+  .search-text {
+    width: 40%;
+    padding-bottom: 50px;
+    display: inline-flex;
+  }
+  .search-btn {
+    width: 20%;
+    padding-bottom: 50px;
+    display: inline-flex;
+  }
+  .selecrt-sort{
+    width: 10%;
+    padding-bottom: 50px;
+    display: inline-flex;
+  }
+ 

@@ -1,0 +1,30 @@
+<div class="allCard">
+  <div class="search">
+    <div class="search-text">
+      <!-- יותר יעיל PIPE-->
+      <input style="width: 100%" name="search" [(ngModel)]="searchText" (keyup)="filterByText()" autocomplete="off"
+        placeholder="&#61442;  Start searching for a num case or submits excitation">
+    </div>
+    <div class="search-btn">
+      <button type="button" id="all-cases" pButton class="btn" (click)="setAllCases()">הכל</button>
+      <button type="button" id="all-cases" pButton class="btn" (click)="filterByUser()">תיקים שלי</button>
+      <button type="button" id="all-cases" pButton class="btn" (click)="filterByStatus(activeStatus)">תיקים
+        פעילים</button>
+      <button type="button" id="all-cases" pButton class="btn" (click)="filterByStatus(closeStatus)">תיקים
+        סגורים</button>
+    </div>
+    <select class="selecrt-sort" (change)="onSort($event.target)">
+      <option value="dateCreate">תאריך פתיחה</option>
+      <option value="numCase"> מספר תיק</option>
+    </select>
+  </div>
+  <div class="card" *ngFor="let case of casesFilter">
+    <div>
+      <div class="title"> מספר תיק:{{case.numCase}} עוסק:{{case.topic}} סוג תיק:{{case.type}} </div>
+      <div> תקופת זכאות:{{case.entitlement}} תאריך פתיחת תיק:{{case.dateCreate}} דיון קרוב :{{case.nextDiscussion}}
+      </div>
+      <div> מגיש הערר:{{case.submitsExcitation}} יו"ר ועדה:{{case.chairmanCommittee}} נציג ציבור
+        :{{case.publicRepresentative}} </div>
+    </div>
+  </div>
+</div>
