@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Case } from '../models/case.module';
-import { BehaviorSubject, Observable, map } from 'rxjs';
-import { log } from 'console';
+import {  Observable } from 'rxjs';
 
 
 @Injectable({
@@ -12,8 +11,8 @@ export class CaseService {
 
   constructor(private _http: HttpClient) { }
 
-  gatAllCases2(): Observable<Case> {
-    return this._http.get<Case>('https://localhost:7229/');
+  gatAllCases2(): Observable<Case[]> {
+    return this._http.get<Case[]>('https://localhost:5001/legalCase/GetAllCases');
   }
   gatAllCases() {
     return [{
@@ -26,7 +25,7 @@ export class CaseService {
       "dateCreate": "11/07/2024",
       "nextDiscussion": "15.07.2024",
       "submitsExcitation": "אברהם אברהמי",
-      "chairmanCommittee": "ציון ציוני",
+      "chairmanCommitte": "ציון ציוני",
       "publicRepresentative": "עדיין לא מונה"
     },
     {
@@ -39,13 +38,14 @@ export class CaseService {
       "dateCreate": "10/07/2024",
       "nextDiscussion": "17.07.2024",
       "submitsExcitation": "ישראל ישראלי",
-      "chairmanCommittee": "שמואל שמואלי",
+      "chairmanCommitte": "שמואל שמואלי",
       "publicRepresentative": "עדיין לא מונה"
     }]
       ;
   }
+
   getCaseById(id: number): Observable<Case> {
-    return this._http.get<Case>(`https://localhost:7229/user/id?id=${id}`)
+    return this._http.get<Case>(`https://localhost:5001/legalCase/GetCaseById=${id}`)
   }
 }
 

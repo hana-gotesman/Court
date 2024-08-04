@@ -15,8 +15,8 @@ import { Case, StatusEnum } from '../../models/case.module';
 })
 export class CaseComponent {
   constructor(private caseService: CaseService, private route: Router) { }
-  activeStatus=StatusEnum.active;
-  closeStatus=StatusEnum.close;
+  activeStatus=StatusEnum.Active;
+  closeStatus=StatusEnum.Close;
   cases: Case[] = [];
   casesFilter: Case[] = [];
   searchText:string ="";
@@ -32,13 +32,14 @@ export class CaseComponent {
     // )
   }
   gatAllCasea() {
-    this.cases = this.caseService.gatAllCases();
-    this.casesFilter = this.cases;
+     this.cases = this.caseService.gatAllCases();
     // this.caseService.gatAllCases().subscribe(
     //   res=>{
     // this.cases =res;
     //   }
     // )
+    this.casesFilter = this.cases;
+
   }
   filterByText(){
     if(this.searchText==""){

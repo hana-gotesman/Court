@@ -8,12 +8,12 @@ export class Case {
   dateCreate!:string
   nextDiscussion!:string
   submitsExcitation!:string
-  chairmanCommittee!:string
+  chairmanCommitte!:string
   publicRepresentative!:string
  }
 
  export enum StatusEnum {
-  active,
-  close
+  Active,
+  Close
  }
 
